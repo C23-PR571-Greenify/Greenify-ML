@@ -1,6 +1,6 @@
 <div align="center">
 
-  <img src="https://github.com/C23-PR571-Greenify/Greenify-Documentation/blob/main/logo.png" alt="logo" width="200" height="auto" />
+  <img src="https://github.com/C23-PR571-Greenify/Greenify-Documentation/blob/main/logo.png" alt="logo" width="350" height="auto" />
   <h1>Greenify Machine Learning</h1>
 
 </div>
