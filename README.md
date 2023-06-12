@@ -28,11 +28,14 @@ import tensorflow as tf
 model = tf.keras.models.load_model('path_to_model/model.h5')
 ```
 
-To use the model for prediction, provide two arrays. The first array should contain user features, which represent the average ratings for tourism places in the 'budaya', 'cagar alam', and 'bahari' categories. The second array should contain tourism features, including price, rating, latitude, longitude, and category encoded as follows:
+To use the model for prediction, provide two arrays. The first array should contain user features, which represent the average ratings for tourism places in the 'budaya', 'cagar alam', and 'bahari' categories. To predict ratings that will be given by the user to many tourism places, you have to duplicate the array as much as tourism places. The second array should contain tourism features, including price, rating, latitude, longitude, and category encoded as follows:
 
 ```python
-user_features = [[5.0, 5.0, 1.0], [4.0, 3.0, 4.0], [3.0, 5.0, 0.0]]
+import numpy as np
+
+user_feature = [[5.0, 5.0, 1.0]]
 tourism_features = [[75000, 4.5, -6.851659, 107.595553, 1], [50000, 4.7, -6.859701, 107.636098, 2], [325, 75000, 4.7, -6.897136, 107.655847, 3]]
+user_features = np.repeat(user_features, tourism_features.shape[0], axis=0)
 ```
 
 Before making predictions, please scale the user features and tourism features using the provided scaler. You can load the scaler using the joblib library:
